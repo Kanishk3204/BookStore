@@ -1,6 +1,6 @@
 import React from "react";
 // import banner from "../../public/Banner.png";
-import banner from "/Banner.png";
+import banner from "/Banner2.png";
 function Banner() {
   return (
     <>
@@ -9,7 +9,7 @@ function Banner() {
           <div className="space-y-8">
             <h1 className="text-2xl md:text-4xl font-bold">
               Hello, welcomes here to learn something{" "}
-              <span className="text-pink-500">new everyday!!!</span>
+              <span className="text-yellow-400">new everyday!!!</span>
             </h1>
             <p className="text-sm md:text-xl">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor,
@@ -29,7 +29,7 @@ function Banner() {
               <input type="text" className="grow" placeholder="Email" />
             </label>
           </div>
-          <button className="btn mt-6 btn-secondary">Get Started</button>
+          <button className="btn mt-6 text-white bg-yellow-400 hover:bg-yellow-600">Get Started</button>
         </div>
         <div className=" order-1 w-full mt-20 md:w-1/2">
           <img

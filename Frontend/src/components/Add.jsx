@@ -8,11 +8,10 @@ function Add() {
     // const location = useLocation();
     // const navigate = useNavigate();
     // const from = location.state?.from?.pathname || "/";
-    // const {
-    //     register,
-    //     handleSubmit,
-    //     formState: { errors },
-    // } = useForm();
+    const {
+        register,
+        formState: { errors },
+    } = useForm();
 
     // const onSubmit = async (data) => {
     //     const bookInfo = {
@@ -56,22 +55,22 @@ function Add() {
 
 
         try {
-        const response = await axios.post('http://localhost:4001/book/addBook', formData, {
-            headers: {
-            'Content-Type': 'multipart/form-data',
-            },
-        });
+            const response = await axios.post('http://localhost:4001/book/addBook', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
 
-        if(response.status===200){
-            setName(''); setImage(null);
-            setPrice(''); setTitle(''); setCategory('');
-            alert("Book is added");
-            // toast.success("Added Book successfully");
-            document.getElementById('file-upload').value = '';
-        }
+            if (response.status === 200) {
+                setName(''); setImage(null);
+                setPrice(''); setTitle(''); setCategory('');
+                // alert("Book is added");
+                toast.success("Added Book successfully");
+                document.getElementById('file-upload').value = '';
+            }
 
         } catch (error) {
-            // toast.error("Error: " + err.response.data.message);
+            toast.error("Error: " + err.response.data.message);
             console.error(error);
         }
     };
@@ -99,11 +98,11 @@ function Add() {
                                     className="w-80 px-3 py-1 border rounded-md outline-none dark:bg-slate-900 dark:text-white"
                                 />
                                 <br />
-                                {/* {errors.name && (
+                                {errors.name && (
                                     <span className="text-sm text-red-500">
                                         This field is required
                                     </span>
-                                )} */}
+                                )}
                             </div>
                             {/* Price */}
                             <div className="mt-4 space-y-2">
@@ -116,14 +115,14 @@ function Add() {
                                     onChange={(e) => setPrice(e.target.value)}
                                     required
                                     className="w-80 px-3 py-1 border rounded-md outline-none dark:bg-slate-900 dark:text-white"
-                                    // {...register("price", { required: true })}
+                                // {...register("price", { required: true })}
                                 />
                                 <br />
-                                {/* {errors.price && (
+                                {errors.price && (
                                     <span className="text-sm text-red-500">
                                         This field is required
                                     </span>
-                                )} */}
+                                )}
                             </div>
                             {/* title */}
                             <div className="mt-4 space-y-2">
@@ -136,14 +135,14 @@ function Add() {
                                     onChange={(e) => setTitle(e.target.value)}
                                     required
                                     className="w-80 px-3 py-1 border rounded-md outline-none dark:bg-slate-900 dark:text-white"
-                                    // {...register("title", { required: true })}
+                                // {...register("title", { required: true })}
                                 />
                                 <br />
-                                {/* {errors.title && (
+                                {errors.title && (
                                     <span className="text-sm text-red-500">
                                         This field is required
                                     </span>
-                                )} */}
+                                )}
                             </div>
                             <div className="mt-4 space-y-2">
                                 <span>Category</span>
@@ -155,14 +154,14 @@ function Add() {
                                     onChange={(e) => setCategory(e.target.value)}
                                     required
                                     className="w-80 px-3 py-1 border rounded-md outline-none dark:bg-slate-900 dark:text-white"
-                                    // {...register("category", { required: true })}
+                                // {...register("category", { required: true })}
                                 />
                                 <br />
-                                {/* {errors.category && (
+                                {errors.category && (
                                     <span className="text-sm text-red-500">
                                         This field is required
                                     </span>
-                                )} */}
+                                )}
                             </div>
                             <div className="mt-4 space-y-2">
                                 <span>Image</span>
@@ -170,22 +169,20 @@ function Add() {
                                 <input
                                     type="file"
                                     id="file-upload"
-                                    accept="image/*"
+                                    accept='image/*'
                                     required
                                     onChange={handleFileChange}
-                                    className="file-input file-input-bordered file-input-secondary w-full max-w-xs dark:bg-slate-900 dark:text-white"
-                                    // {...register("image", { required: true })} 
-                                />
+                                    className="file-input file-input-bordered file-input-warning w-full max-w-xs dark:bg-slate-900 dark:text-white" />
                                 <br />
-                                {/* {errors.image && (
+                                {errors.image && (
                                     <span className="text-sm text-red-500">
                                         This field is required
                                     </span>
-                                )} */}
+                                )}
                             </div>
                             {/* Button */}
                             <div className="flex justify-around mt-4">
-                                <button className="bg-pink-500 text-white rounded-xl mt-2 px-7 py-3 hover:bg-pink-700 duration-200">
+                                <button className="bg-yellow-400 text-white rounded-xl mt-2 px-7 py-3 hover:bg-yellow-600 duration-200">
                                     Add
                                 </button>
                             </div>
